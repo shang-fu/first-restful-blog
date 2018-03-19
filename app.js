@@ -6,7 +6,7 @@ var express 			= require('express'),
 	app					= express();
 
 // APP CONFIG
-mongoose.connect("mongodb://localhost/restful_blog_app");
+mongoose.connect("mongodb://shawn:Aa9004327@ds113179.mlab.com:13179/restful-crud-blog-mongo");
 app.set("view engine", "ejs");
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({extended: true}));
@@ -107,7 +107,11 @@ app.delete("/blogs/:id", function(req, res){
 });
 
 
-// app.listen(process.env.PORT, process.env.IP, function(){
-app.listen(3000, function(){
-	console.log("SERVER IS RUNNING");
+// Start the server
+const PORT = process.env.PORT || 8080;
+app.listen(PORT, () => {
+  console.log(`App listening on port ${PORT}`);
+  console.log('Press Ctrl+C to quit.');
 });
+
+module.exports = app;

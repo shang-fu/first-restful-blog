@@ -1,12 +1,18 @@
 {
-  "name": "blogsolution",
+  "name": "restful-crub-blog",
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "deploy": "gcloud app deploy",
+    "start": "node app.js",
+    "lint": "samples lint",
+    "pretest": "npm run lint",
+    "system-test": "samples test app",
+    "test": "npm run system-test",
+    "e2e-test": "samples test deploy"
   },
-  "author": "shawn",
+  "author": "shang-fu hsieh",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.18.2",
